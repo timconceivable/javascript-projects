@@ -42,7 +42,8 @@ if (weatherStatus !== "clear") {
 }
 
 // Verify shuttle launch can proceed based on above conditions
-console.log("DATE: " + date, 
+console.log("------------------------------------",
+"\nDATE: " + date, 
 "\nTIME: " + time, 
 "\nASTRONAUT COUNT: " + astronautCount,
 "\nCREW MASS: " + crewMassKg,
@@ -50,7 +51,10 @@ console.log("DATE: " + date,
 "\nSHUTTLE MASS: " + shuttleMassKg,
 "\nTOTAL MASS: " + totalMassKg,
 "\nFUEL TEMPERATURE: " + fuelTempC,
-"\nWEATHER STATUS: " + weatherStatus);
+"\nWEATHER STATUS: " + weatherStatus,
+"\n------------------------------------");
 if (preparedForLiftoff) {
-    console.log("\nAll systems are a go! Initiating space shuttle launch sequence. \nHave a safe trip astronauts!")
+    console.log("\nALL SYSTEMS ARE A GO! \nInitiating space shuttle launch sequence. \nHave a safe trip astronauts!")
+} else {
+    console.log("\nLaunch aborted!");
 }
