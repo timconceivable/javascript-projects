@@ -7,7 +7,7 @@ let crewStatus = spaceSuitsOn && shuttleCabinReady;
 let computerStatusCode = 400;
 //let shuttleSpeed = 15000;
 let fuelLevel = 21000; //Number(input.question("Fuel Level: "));
-let engineTemp = 1200; //Number(input.question("Engine Temp: "));
+let engineTemp = 1000; //Number(input.question("Engine Temp: "));
 let engineIndicator = "green blinking" //input.question("Engine Indicator Light: ");
 let commandOverride = Boolean(input.question("Override? (Y/N): ").toLowerCase() == "y") ? true : false;
 let overrideStatus = commandOverride ? "ACTIVE" : "INACTIVE";
