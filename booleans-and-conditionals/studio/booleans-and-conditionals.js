@@ -22,22 +22,12 @@ let preparedForLiftoff = true;
 // add logic below to verify the fuel temperature is within the appropriate range of -150 and -300
 // add logic below to verify the fuel level is at 100%
 // add logic below to verify the weather status is clear
-if (astronautCount > 7) {
-    preparedForLiftoff = false;
-}
-if (astronautStatus !== "ready") {
-    preparedForLiftoff = false;
-}
-if (totalMassKg > maxMassLimit) {
-    preparedForLiftoff = false;
-}
-if ((fuelTempC < minFuelTemp) || (fuelTempC > maxFuelTemp)) {
-    preparedForLiftoff = false;
-}
-if (fuelLevelPercentage !== 100) {
-    preparedForLiftoff = false;
-}
-if (weatherStatus !== "clear") {
+if ( (astronautCount > 7) || 
+ (astronautStatus !== "ready") ||
+ (totalMassKg > maxMassLimit) ||
+ ((fuelTempC < minFuelTemp) || (fuelTempC > maxFuelTemp)) ||
+ (fuelLevelPercentage !== 100) ||
+ (weatherStatus !== "clear") ) {
     preparedForLiftoff = false;
 }
 
