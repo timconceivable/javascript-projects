@@ -8,18 +8,20 @@ strings = [protoArray1, protoArray2, protoArray3, protoArray4];
 //2) 
 function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
-	let check;
-	let output;
 	//TODO: 2. write the code required for this step
-
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
+	let check = strings[0].includes(",");
+	let output;
+	if (check) {
+		output = strings[0].split(",").reverse().join(",");
+	}
 	return output;
 }
 
 //3)
 function semiDash() {
-	let check;
-	let output;
+	let check = strings[0].includes(";");
+	let output = strings[0].split(",").reverse().join(",");
 //TODO: write the code required for this step
 
   
