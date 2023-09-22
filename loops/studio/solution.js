@@ -23,6 +23,7 @@ function mealAssembly(protein, grains, veggies, beverages, desserts, numMeals) {
     }
     meals.push(aMeal);
   }
+  
   return meals;
 }
 
@@ -43,8 +44,7 @@ function generatePassword(string1, string2) {
   /// Code your Bonus Mission Solution here ///
   let code = '';
   for (pos = 0; pos < string1.length; pos++) {
-    code = code.concat(string1.charAt(pos));
-    code = code.concat(string2.charAt(pos));
+    code = code.concat(string1.charAt(pos),string2.charAt(pos));
   }
 
   return code;
