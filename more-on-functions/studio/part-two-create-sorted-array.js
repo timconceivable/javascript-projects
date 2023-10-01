@@ -44,7 +44,8 @@ function sortArray(anArray) {
 
 // BONUS MISSION: Refactor your sorting function to use recursion below:
 // what am i even doing?
-/* function sortArray(anArray) {
+/* 
+function sortArray(anArray) {
   if (anArray.length > 0) {
     return sortArray(anArray.unshift(findMinVal(anArray)));
   } else return anArray;
