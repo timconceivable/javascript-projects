@@ -24,7 +24,6 @@ function semiDash() {
 	let output = strings[0].split(",").reverse().join(",");
 //TODO: write the code required for this step
 
-  
 	return output;
 }
 
