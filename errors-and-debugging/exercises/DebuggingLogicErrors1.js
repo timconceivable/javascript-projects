@@ -3,28 +3,32 @@
 // Did it?
 // Do not worry about fixing the code yet, we will do that in the next series of exercises.
 
-let launchReady = false;
-let fuelLevel = 17000;
-let crewStatus = true;
+let crewReady = true;
 let computerStatus = 'green';
+const fuelNeeded = 20000;
+let fuelLevel = 27000;
 
-if (fuelLevel >= 20000) {
+if (crewReady){
+   console.log('Crew ready.');
+} else {
+   console.log('WARNING: Crew not ready!');
+}
+
+if (computerStatus === 'green'){
+   console.log('Computer cleared.');
+} else {
+   console.log('WARNING: Computer not ready!');
+}
+
+if (fuelLevel >= fuelNeeded) {
    console.log('Fuel level cleared.');
-   launchReady = true;
 } else {
    console.log('WARNING: Insufficient fuel!');
-   launchReady = false;
 }
 
-if (crewStatus && computerStatus === 'green'){
-   console.log('Crew & computer cleared.');
-   launchReady = true;
-} else {
-   console.log('WARNING: Crew or computer not ready!');
-   launchReady = false;
-}
-
-if (launchReady) {
+if (crewReady 
+   && computerStatus === 'green' 
+   && fuelLevel >= fuelNeeded) {
    console.log('10, 9, 8, 7, 6, 5, 4, 3, 2, 1...');
    console.log('Liftoff!');
 } else {
