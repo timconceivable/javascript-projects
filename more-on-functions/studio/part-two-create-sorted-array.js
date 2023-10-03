@@ -44,13 +44,21 @@ function sortArray(anArray) {
 
 // BONUS MISSION: Refactor your sorting function to use recursion below:
 // what am i even doing?
-/* 
-function sortArray(anArray) {
-  if (anArray.length > 0) {
-    return sortArray(anArray.unshift(findMinVal(anArray)));
-  } else return anArray;
+
+function combineEntries(arrayName){
+  if (arrayName.length > 1){
+      return arrayName[0]+combineEntries(arrayName.slice(1));
+  } else {
+      return arrayName[0];
+  }
 }
- */
+
+function sortArrayRec(anArray) {
+  if (anArray.length > 1) {
+    return sortArrayRec(findMinVal(anArray));
+  } else return findMinVal(anArray);
+}
+
 //Sample arrays for testing:
 let nums1 = [5, 10, 2, 42];
 let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
@@ -59,3 +67,9 @@ let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 console.log(sortArray(nums1),"\n", 
 sortArray(nums2),"\n", 
 sortArray(nums3));
+
+/* console.log(sortArrayRec(nums1),"\n", 
+sortArrayRec(nums2),"\n", 
+sortArrayRec(nums3)); */
+
+// console.log(combineEntries(['L', 'C', '1', '0', '1']));

@@ -4,6 +4,7 @@ let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
 let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 
 // How does the compiler know what A and B are in this function??
+// https://education.launchcode.org/intro-to-web-dev-curriculum/more-on-functions/studio/index.html
 // arrayName.sort(function(a, b){return a-b});
 
 //Sort each array in ascending order.
