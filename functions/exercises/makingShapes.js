@@ -56,8 +56,7 @@ function makeIsoTri(height) {
 
 function makeDiamond(height) {
     let top = makeIsoTri(height);
-    let bottom = top.split("\n");
-    bottom = bottom.reverse().join("\n");
+    let bottom = top.split("\n").reverse().join("\n");
     return top+"\n"+bottom;
 }
 
