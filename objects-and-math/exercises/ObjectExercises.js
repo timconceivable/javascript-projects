@@ -1,18 +1,18 @@
 let superChimpOne = {
    name: "Chad",
    species: "Chimpanzee",
-   pronoun: ["He","His","s"],
-   mass: 9,
+   pronoun: ["He","His","is","s"],
+   mass: 69,
    age: 6,
    speed: 10,
-   likes: "bananas, lifting weights, and touching himself"
+   likes: "banana martinis, lifting weights, and long walks on the beach"
 };
 
-let superChimpTwo = {
+let superWimpTwo = {
    name: "Brad",
-   species: "Chimpanzee",
-   pronoun: ["He","His","s"],
-   mass: 11,
+   species: "Wimpanzee",
+   pronoun: ["He","His","is","s"],
+   mass: 86,
    age: 6,
    speed: 9,
    likes: "PB&B sandwiches, skateboarding, and flinging poo"
@@ -20,8 +20,8 @@ let superChimpTwo = {
 
 let beagle = {
    name: "Bernice",
-   species: "Beagle",
-   pronoun: ["They","Their",""],
+   species: "Beagledog",
+   pronoun: ["They","Their","are",""],
    mass: 14,
    age: 5,
    speed: 8,
@@ -31,27 +31,27 @@ let beagle = {
 let axolotl = {
    name: "Lacey",
    species: "Axolotl",
-   pronoun: ["She","Her","s"],
-   mass: 0.1,
+   pronoun: ["She","Her","is","s"],
+   mass: 0.5,
    age: 5,
    speed: 6,
    likes: "swimming, wiggling her gills, and being pink"
 };
 
 let tardigrade = {
-   name: "Almina",
+   name: "Xelmina",
    species: "Tardigrade",
-   pronoun: ["She","Her","s"],
+   pronoun: ["Xe","Xeir","is","s"],
    mass: 0.0000000001,
    age: 1,
    speed: 3,
-   likes: "micro-organisms and time travel"
+   likes: "micro-organisms and interdimensional travel"
 };
 
-// Create an array to hold the animal objects.
-let animals = [superChimpOne,superChimpTwo,beagle,axolotl,tardigrade];
+// an array to hold the animal objects.
+let animals = [superChimpOne,superWimpTwo,beagle,axolotl,tardigrade];
 
-// After you have created the other object literals, add the astronautID property to each one.
+// add the astronautID property to each animal object.
 function assignIds(arr) {
    let ids = [0];
    for (animal in arr) {
@@ -65,14 +65,17 @@ function assignIds(arr) {
    return ids;
 }
 
-function crewReports(obj) {
-   return `${obj.name} is a ${obj.species}. ${obj.pronoun[0]} is ${obj.age} years old and weighs ${obj.mass} kilograms. \n${obj.pronoun[0]} like${obj.pronoun[2]} ${obj.likes}. \n${obj.pronoun[1]} ID is ${obj.astronautID}.\n`
+// introduce a racers
+function intro(obj) {
+   return `${obj.name} is a ${obj.species}. ${obj.pronoun[0]} ${obj.pronoun[2]} ${obj.age} years old and weigh${obj.pronoun[3]} ${obj.mass} kilograms. \n${obj.pronoun[0]} like${obj.pronoun[3]} ${obj.likes}. \n${obj.pronoun[1]} ID is ${obj.astronautID}.\n`
 }
 
+// move a random amount based on object's speed
 function move(obj) { 
    return Math.ceil(Math.random()*obj.speed);
 }
 
+// visualize race progress each step
 function raceProgress(steps) {
    let output = "";
    for (i=0; i< steps; i++) {
@@ -81,6 +84,7 @@ function raceProgress(steps) {
    return output;
 }
 
+// run the race for each racer
 function fitnessTest(racers) {
    let results = [];
    for (obj in racers) {
@@ -92,13 +96,13 @@ function fitnessTest(racers) {
          console.log(racers[obj].name, turn, raceProgress(steps), steps);
          turn++;
       }
-      // turns[obj][racers[obj].name] = turn;
       results[obj] = [racers[obj].name,turn,steps];
       console.log("");
    }
    return results;
 }
 
+// determine who won
 function findWinner(arr) {
    let leastTurns = arr[0];
    for (i=1; i <arr.length; i++) {
@@ -115,19 +119,18 @@ function findWinner(arr) {
 
 // Print out the relevant information about each animal.
 assignIds(animals);
-console.log("\nLET'S MEET OUR RACERS! \n----------")
+console.log("\nGOOD AFTERNOON RACE FANS! \nWELCOME TO GLOBAL ANIMALS RACEWAY! \nWHERE THE FASTEST ANIMALS ON EARTH \nRACE FOR THE GLORY OF... RACING? \n\nLET'S MEET OUR RACERS! \n- - - - - - - - - - ")
 for (obj in animals) {
-   console.log(crewReports(animals[obj]));
+   console.log(intro(animals[obj]));
 }
 
 // Start an animal race!
-console.log("\nOKAY, LET'S RACE! \n----------");
+console.log("\nOKAY, LET'S RACE! \nRACERS READY? \n3... 2... 1... GO! \n- - - - - - - - - - \n");
 let raceResults = fitnessTest(animals);
 for (i in raceResults) {
-   console.log(`${raceResults[i][0]} took ${raceResults[i][1]} turns to take 20 steps.`);
+   console.log(`${raceResults[i][0]} went ${raceResults[i][2]} steps in ${raceResults[i][1]} turns.`);
 }
-
-// console.log(findWinner(raceResults));
+// announce winner
 let winner = findWinner(raceResults);
 console.log(`\nAND THE WINNER IS... ${winner[0]}!`);
 
