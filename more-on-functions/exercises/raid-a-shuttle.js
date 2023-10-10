@@ -37,9 +37,9 @@ let innocentVariable = function(arr) {
   // 'space suits', 'first-aid kit', 'meal kits', 'water'];
   let numItems = swag.length;
   for (let i = 0; i < numItems; i++) {
-    if (cargoHold.includes(swag[0])) {
+    if (arr.includes(swag[0])) {
       let item = swag.shift();
-      cargoHold.splice(cargoHold.indexOf(item),1,"box of lint");
+      arr.splice(arr.indexOf(item),1,"box of lint");
       console.log(`grabbing ${item}... nothing to see here!`);
       booty.push(item); // hehe ;)
     }
