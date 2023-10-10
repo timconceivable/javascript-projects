@@ -1,3 +1,6 @@
+let fuelLevel = 200000;
+let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
+
 function checkFuel(level) {
   if (level > 100000){
     return 'green';
@@ -18,47 +21,46 @@ function holdStatus(arr){
   }
 }
 
-let fuelLevel = 200000;
-let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
-
-let totallyUnsuspiciousFunction = function (quantity) {
-  let currentLevel = checkFuel(quantity-1);
+let totallyUnsuspiciousFunction = function (level) {
+  let currentLevel = checkFuel(level-1);
   let amountToBorrow = 0;
-  while (checkFuel(quantity-1-amountToBorrow) === currentLevel && (quantity-amountToBorrow) > 1) {
+  while (checkFuel(level-1-amountToBorrow) === currentLevel && (level-amountToBorrow) > 1) {
     amountToBorrow++;
   }
   console.log(`just borrowing ${amountToBorrow} kg of fuel... we'll definitely bring it back!`);
   return amountToBorrow;
 }
+
 let innocentVariable = function(arr) {  
   let booty = [];
-  let swag = ["gold","AE-35 unit","satellite"];
-  for (i in swag) {
+  let swag = ['gold', 'AE-35 unit', 'satellite'];
+  // 'space suits', 'first-aid kit', 'meal kits', 'water'];
+  let numItems = swag.length;
+  for (let i = 0; i < numItems; i++) {
     if (cargoHold.includes(swag[0])) {
       let item = swag.shift();
       cargoHold.splice(cargoHold.indexOf(item),1,"box of lint");
       console.log(`grabbing ${item}... nothing to see here!`);
-      booty.push(item);
+      booty.push(item); // hehe ;)
     }
   }
   return booty;
 }
 
-let irs = function(level,cargo) {
-  let amountBorrowed = totallyUnsuspiciousFunction(level);
-  let grabbed = innocentVariable(cargo);
-  return `\nRECEIPT: \nBorrowed ${amountBorrowed} kg of fuel from the tanks. \nBorrowed ${grabbed[0]} and ${grabbed[1]} from the cargo hold. \nIt's a good day to be a pira-- I mean, friendly neighbor!\n`;
+let irs = function(fuel,cargo) {
+  let amountBorrowed = totallyUnsuspiciousFunction(fuel);
+  let itemsGrabbed = innocentVariable(cargo);
+  return `\nRECEIPT: \nBorrowed ${amountBorrowed} kg of fuel from the tanks. \nBorrowed ${itemsGrabbed[0]}, ${itemsGrabbed[1]}, and ${itemsGrabbed[2]} from the cargo hold. \nIt's a good day to be a pira-- I mean, friendly neighbor!\n`;
 }
 
-// for (i=0; i<4; i++){
-  console.log("Fuel level: " + checkFuel(fuelLevel));
-  console.log("Hold status: " + holdStatus(cargoHold) + "\n");
-  console.log(irs(fuelLevel,cargoHold));
-  console.log("Fuel level: " + checkFuel(fuelLevel));
-  console.log("Hold status: " + holdStatus(cargoHold));
+console.log("Fuel level: " + checkFuel(fuelLevel));
+console.log("Hold status: " + holdStatus(cargoHold) + "\n");
+console.log(irs(fuelLevel,cargoHold));
+console.log("Fuel level: " + checkFuel(fuelLevel));
+console.log("Hold status: " + holdStatus(cargoHold));
 
 
-/* Steal some fuel from the shuttle:
+  /* Steal some fuel from the shuttle:
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
