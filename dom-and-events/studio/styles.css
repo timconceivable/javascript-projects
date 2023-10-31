@@ -34,14 +34,14 @@ div {
     display: inline-block;
     position: relative;
     margin: 20px;
-    height: 400px;
-    width: 400px;
+    height: 200px;
+    width: 200px;
     background-color: green;
 }
 
 #rocket {
     position: absolute;
-    left: 180px;
+    left: 90px; /* why this is centered instead of 180px? */
     rotate: 0deg;
     bottom: 0;
 }
