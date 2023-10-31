@@ -13,7 +13,7 @@ function init () {
     const leftButton = document.getElementById("left");
     const rightButton = document.getElementById("right");
     
-    const center = "90px";
+    const center = "90px"; // not quite half of the box
     const shuttleSpeed = 10;
     let inAir = false;
     let currentXPos = parseInt(getComputedStyle(shuttle).left);
