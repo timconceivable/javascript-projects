@@ -3,14 +3,21 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align:center;
     vertical-align: baseline;
+    background-color: slategray;
 }
 
 div {
     padding: 10px;
-    border: solid;
-    border-width: 1px;
-    border-color: red;
-    /* background-color: aqua; */
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #c0c0d0;
+    background-color: lightblue;
+}
+
+.centered {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 #flightStatus {
@@ -19,33 +26,50 @@ div {
 
 #flightDisplay {
     width: 100%;
+    margin: 0 auto;
     display: flexbox;
 }
 
 #shuttleBackground {
-    background-color: green;
     display: inline-block;
     position: relative;
+    margin: 20px;
     height: 400px;
     width: 400px;
+    background-color: green;
 }
 
 #rocket {
     position: absolute;
     left: 180px;
+    rotate: 0deg;
     bottom: 0;
+}
+
+.center-block {
+    display: inline-block;
+    width: 15%;
 }
 
 #shuttleHeight {
     display: inline-block;
 }
 
-.center-block {
-    display: inline-block;
+#up {
+    display: block;
+    margin: 5px auto;
 }
 
-.centered {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
+#left {
+    margin: 5px 10%;
+}
+
+#right {
+    /* float: left; */
+    margin: 5px 5%;
+}
+
+#down {
+    display: block;
+    margin: 5px auto;
 }

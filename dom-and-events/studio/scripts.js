@@ -3,20 +3,19 @@ function init () {
     const landingButton = document.getElementById("landing");
     const abortButton = document.getElementById("missionAbort");
     const flightStatus = document.getElementById("flightStatus");
-    const shuttleBg = document.getElementById("shuttleBackground");
     const shuttleHeight = document.getElementById("shuttleHeight");
-        
+    const shuttleBg = document.getElementById("shuttleBackground");
+    const shuttle = document.getElementById("rocket");    
     const upButton = document.getElementById("up");
     const downButton = document.getElementById("down");
     const leftButton = document.getElementById("left");
     const rightButton = document.getElementById("right");
-    const shuttle = document.getElementById("rocket");
+    
+    const increment = 10;
     let inAir = false;
-    let increment = 10;
-    let currentXPos = Number(shuttle.style.left.replace(/[^\d.-]/g, ''));
-    let currentYPos = Number(shuttle.style.bottom.replace(/[^\d.-]/g, ''));
-    console.log(currentXPos);
-    console.log(currentYPos);
+    let currentXPos = parseInt(getComputedStyle(shuttle).left);
+    let currentYPos = parseInt(getComputedStyle(shuttle).bottom);
+    let rotation = parseInt(getComputedStyle(shuttle).rotate);
     
     takeoffButton.addEventListener("click", function() {
         if (window.confirm("Confirm that the shuttle is ready for takeoff")) {
@@ -26,6 +25,9 @@ function init () {
             shuttle.style.bottom = "10px";
             shuttle.style.left = "180px";
             inAir = true;
+            currentXPos = parseInt(getComputedStyle(shuttle).left);
+            currentYPos = parseInt(getComputedStyle(shuttle).bottom);
+            shuttle.style.rotate = "0deg";
         }
     });
 
@@ -37,6 +39,9 @@ function init () {
         shuttle.style.bottom = "0";
         shuttle.style.left = "180px";
         inAir = false;
+        currentXPos = parseInt(getComputedStyle(shuttle).left);
+        currentYPos = parseInt(getComputedStyle(shuttle).bottom);
+        shuttle.style.rotate = "0deg";
     });
     
     abortButton.addEventListener("click", function () {
@@ -47,40 +52,44 @@ function init () {
             shuttle.style.bottom = "0";
             shuttle.style.left = "180px";
             inAir = false;
+            currentXPos = parseInt(getComputedStyle(shuttle).left);
+            currentYPos = parseInt(getComputedStyle(shuttle).bottom);
+            shuttle.style.rotate = "0deg";
         }
     });
 
     upButton.addEventListener("click", function () {
-        currentYPos = Number(shuttle.style.bottom.replace(/[^\d.-]/g, ''));
-        if (currentYPos < 381 && inAir) {
+        if (currentYPos < 371 && inAir) {
             currentYPos += increment;
             shuttle.style.bottom = String(currentYPos)+"px";
             shuttleHeight.innerHTML = Number(shuttleHeight.innerHTML)+(1000*increment);
+            shuttle.style.rotate = "0deg";
         }
     });
+
     downButton.addEventListener("click", function () {
-        currentYPos = Number(shuttle.style.bottom.replace(/[^\d.-]/g, ''));
         if (currentYPos > 9 && inAir) {
             currentYPos -= increment;
             shuttle.style.bottom = String(currentYPos)+"px";
             shuttleHeight.innerHTML = Number(shuttleHeight.innerHTML)-(1000*increment);
+            shuttle.style.rotate = "180deg";
         }
     });
+
     rightButton.addEventListener("click", function () {
-        currentXPos = Number(shuttle.style.left.replace(/[^\d.-]/g, ''));
         if (currentXPos < 381 && inAir) {
             currentXPos += increment;
             shuttle.style.left = String(currentXPos)+"px";
+            shuttle.style.rotate = "45deg";
         }
-        console.log(currentXPos);
     });
+    
     leftButton.addEventListener("click", function () {
-        currentXPos = Number(shuttle.style.left.replace(/[^\d.-]/g, ''));
-        if (currentXPos > 9 && inAir) {
+        if (currentXPos > -1 && inAir) {
             currentXPos -= increment;
             shuttle.style.left = String(currentXPos)+"px";
+            shuttle.style.rotate = "-45deg";
         }
-        console.log(currentXPos);
     });
 }
 
