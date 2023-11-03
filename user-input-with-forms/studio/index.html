@@ -2,18 +2,154 @@
 
 <head>
 	<meta charset="utf-8">
+	<title>User Input Studio</title>
+	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+	<style>
+		:root {
+			--active-color: rgb(142, 184, 146);
+			--active-light: rgb(159, 197, 163);
+			--ltgray: rgb(133, 133, 133);
+			--text-light: rgb(66, 66, 66);
+			--error: rgb(166, 33, 33);
+		}
+		body {
+			background-color: gray;
+			font-family: 'Open Sans', 'Lucida Sans', Arial, Verdana, sans-serif;
+			font-size: 1.5rem;
+		}
+		form {
+			padding: 2rem;
+		}
+		input[type=text] {
+			margin: .5rem;
+			border: 3px solid var(--text-light);
+			background-color: inherit;
+			font-family: inherit;
+			font-size: inherit;
+		}
+		input[type=text]:focus {
+			color: var(--highlight);
+			outline: 1px solid var(--ltgray);
+		}
+		label {
+			display: inline-block;
+			margin: 0 1rem 0 0;
+			color: var(--text-light);
+			font-size: inherit;
+		}
+		label:hover {
+			color: var(--active-color);
+		}
+		input[type=radio]:checked + label {
+			/* background-color: white; */
+			color: black;
+		}
+		input[type=radio] {
+			margin: 0 0 0 .5rem;
+			-webkit-appearance: none;
+			appearance: none;
+			background-color: gray;
+			width: 1rem;
+			height: 1rem;
+			border: .2rem solid var(--text-light);
+			border-radius: 50%;
+		}
+		input[type=radio]:focus {
+			outline: 1px solid var(--ltgray);
+		}
+		input[type=radio]:hover {
+			border-color: var(--text-light);
+			background-color: var(--ltgray);
+		}
+		input[type=radio]:checked {
+			color: var(--active-color);
+			background-color: var(--active-color);
+			border-color: black;
+		}
+		button {
+			margin: .5rem;
+			border: 0;
+			background-color: var(--active-color);
+			font-family: inherit;
+			font-size: inherit;
+		}
+		button:hover {
+			background-color: var(--active-light);
+		}
+		div {
+			margin: -2rem .5rem 0 .5rem;
+			padding: 0;
+		}
+		#error-box {
+			margin: -2rem .5rem 0 .5rem;
+			padding: 0 2rem;
+			font-size: 1rem;
+			color: var(--error);
+		}
+	</style>
 	<script>
-		// TODO: create a handler
+		let actions = {
+   			google: "https://www.google.com/",
+				duckduckgo: "https://www.duckduckgo.com/",
+				bing: "https://www.bing.com/",
+				ask: "https://www.ask.com/"
+		};
+		function setSearchEngine (event) {
+			let query = document.getElementById('q').value.trim();
+			let engine = document.querySelector('input[name=engine]:checked');
+			const errorBox = document.getElementById('error-box');
+			const errorMsg = document.getElementById('error-msg');
+			if (!engine) {
+				errorMsg.innerHTML = "Please select a search engine.";
+				event.preventDefault();
+			} else if (query === '') {
+				errorMsg.innerHTML = "Please enter a search query.";
+				event.preventDefault();
+			} else {
+				
+				let url = actions[engine.value];
+				event.target.setAttribute('action', url);
+			}
+		};
     window.addEventListener("load", function(){
-        // TODO: register the handler
+		const form = document.getElementById("searchForm");
+		form.addEventListener("submit", setSearchEngine);
     });
 	</script>
 </head>
 
 <body>
-
 	<form id="searchForm">
-    <!-- TODO: add form elements -->
+		<input type="radio" 
+			id="google" 
+			name="engine" 
+			value="google" 
+		/>
+		<label for="google">Google</label>
+		<input type="radio" 
+			id="duckduckgo" 
+			name="engine" 
+			value="duckduckgo" 
+		/>
+		<label for="duckduckgo">DuckDuckGo</label>
+		<input 
+			type="radio" 
+			id="bing" 
+			name="engine" 
+			value="bing" 
+		/>
+		<label for="bing">Bing</label>
+		<input 
+			type="radio" 
+			id="ask" 
+			name="engine" 
+			value="ask" 
+		/>
+		<label for="ask">Ask</label> <br>
+		<input type="text" id="q" name="q" /> <br>
+		<button id="submit" value="Go!">Search</button>
 	</form>
-
+	<div id="error-box">
+		<p id="error-msg"></p>
+	</div>
 </body>
