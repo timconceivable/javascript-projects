@@ -42,9 +42,9 @@ window.addEventListener("load", function () { // AFTER PAGE LOADS
    }
    const stars = document.getElementsByClassName("star");
    for (let index in stars) {
-      stars[index].style.top = `${Math.random()*150}%`;
-      stars[index].style.left = `${Math.random()*100}%`;
-      stars[index].style.fontSize = `${Math.ceil(Math.random()*10)}px`;
+      stars[index].style.top = `${Math.floor(Math.random()*115)}%`;
+      stars[index].style.left = `${1+Math.floor(Math.random()*98)}%`;
+      stars[index].style.fontSize = `${1+Math.ceil(Math.random()*10)}px`;
       stars[index].style.textShadow = `0px 0px 5px ghostwhite, 0px 0px ${Math.random()*30}px yellow`;
    }
 });
