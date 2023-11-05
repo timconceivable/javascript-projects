@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Fetch Planets</title>
+      <script>
+         function init() {
+            fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
+               response.json().then(function(json) {
+                  const destination = document.getElementById("destination");
+                  const planet = document.getElementById("planet");
+                  const image = document.getElementById("image");
+                  let index = -1;
+                  function newPlanet() {
+                     index = (index+1) % json.length;
+                     planet.innerHTML = `${json[index].name}`;
+                     image.src = `${json[index].image}`;
+                  }
+                  newPlanet();
+                  destination.addEventListener("click", newPlanet);
+               });
+            });
+         }
+
+         window.addEventListener("load", init);
+      </script>
+   </head>
+   <body>
+      <h1>Destination</h1>
+      <div id="destination">
+         <h3>Planet: <span id="planet"></span></h3>
+         <img id="image" src="" height="250">
+      </div>
+   </body>
+</html>
