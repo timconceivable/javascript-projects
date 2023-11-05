@@ -1,83 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;    
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    display: block;
     width: 100%;
-    padding: 5%;
+    height: 150%;
+    /* overflow-x: hidden; */
+    background-image: linear-gradient(to bottom, black, rgb(72, 38, 87));
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4px;
+}
+
+.star {
+    z-index: -100;
+    position: absolute;
+    /* text-shadow: 0px 0px 50px yellow, 0px 0px 5px ghostwhite; */
+}
+
+h1 {
+    margin: 10px;
+    text-shadow: 0px 0px 50px yellow, 0px 0px 10px ghostwhite;
+}
+
+#container {
+    display: block;
+    width: 90%;
+    margin: 0 auto 10%;
+    text-align: center;
+    font-size: xx-large;
+    /* border: 1px solid red; */
 }
 
 .astronaut {
-    display: flex;
-    float: left;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 600px;
-    height: 200px;
-    align-items: center;
-    padding: 10px;
+    display: inline-block;
+    width: 600px;
+    height: 180px;
     margin: 10px;
     border: 3px solid darkgray;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: lightgray;
-}
-
-.bio {
-    width: 100%;
-    /* border: 1px solid red; */
-    /* background-color: darkslategray; */
-}
-
-.names {
-    margin: 0 20px;
-    width: 80%;
-    padding: 0 20px;
-    border-radius: 10px;
-    background-color: orange;
-}
-
-.info {
-    margin-top: -20px;
-    padding: 0 10px;
-    /* background-color: aliceblue; */
-}
-
-.active {
-    float: right;
-    margin-right: 5%;
-    font-weight: bold;
-    color: green;
-}
-
-.inactive {
-    float: right;
-    margin-right: 5%;
-    font-weight: bold;
-    color: darkgray;
-}
-
-.astronaut h3 {
-    font-size: xx-large; 
-    color: white;
-}
-
-.astronaut ul {
-    list-style-type: none;
-}
-
-.astronaut li {
-    max-width: 80%;
-    padding: 2px;
+    text-align: left;
+    font-size: medium;
 }
 
 .avatar {
     float: right;
-    margin: 10px;
-    padding: 0;
+    margin: 20px;
     border: 5px solid darkgray;
     border-radius: 50%;
     height: 100px;
+    width: 100px;
 }
 
-/* #container {
-    border: 1px solid red;
-    height: 200px;
+.bio {
+    float: left;
+    margin: 20px 0;
+    width: 70%;
+    /* border: 1px solid blue; */
+}
+
+.names {
+    padding-left: 30px;
+    border-radius: 0 15px 15px 0;
+    background-color: orange;
+    font-size: xx-large; 
+    color: white;
+}
+
+.info {
+    padding: 5px 0 0 20px;
+    /* background-color: aqua; */
+}
+
+.active {
+    float: right;
+    font-weight: bold;
+    color: limegreen;
+}
+
+.inactive {
+    float: right;
+    font-weight: bold;
+    color: darkgray;
+}
+
+.astronaut ul {
+    margin-left: 10px;
+}
+
+.astronaut li {
+    list-style-type: none;
     padding: 5px;
-} */
+}
