@@ -10,8 +10,8 @@ window.addEventListener("load", function () { // AFTER PAGE LOADS
          astronautList.sort(function (a,b) {
             return a.hoursInSpace < b.hoursInSpace;
          });
-         const title = document.getElementById("title");
-         title.innerHTML += `${astronautList.length}`;
+         const description = document.getElementById("description");
+         description.innerHTML += `These ${astronautList.length} humans have travelled beyond Earth's atmosphere\u2013 except for ${astronautList[astronautList.length-1].firstName} (she's still training)`;
          
          // GENERATE HTML CONTENT (ASTRONAUT BIOS)
          const container = document.getElementById("container");
@@ -25,7 +25,7 @@ window.addEventListener("load", function () { // AFTER PAGE LOADS
                   <ul class="info">
                      <span class="${isActive}"> ${isActive.toUpperCase()}</span>
                      <li><strong>Hours in space:</strong>&nbsp; ${astronaut.hoursInSpace}</li>
-                     <li><strong>Skills:</strong>&nbsp; ${String(astronaut.skills).replaceAll(',', ', ')}</li>
+                     <li><strong>Skills:</strong>&nbsp; ${astronaut.skills.join(", ")}</li>
                   </ul>
                </div>
                <img class="avatar" src="${astronaut.picture}">

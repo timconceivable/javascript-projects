@@ -11,7 +11,8 @@
                   const image = document.getElementById("image");
                   let index = -1;
                   function newPlanet() {
-                     index = (index+1) % json.length;
+                     index = (index+1) % json.length; 
+                     //index = Math.floor(Math.random()*json.length);
                      planet.innerHTML = `${json[index].name}`;
                      image.src = `${json[index].image}`;
                   }
